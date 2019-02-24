@@ -51,6 +51,14 @@ namespace LiveSplit.PixelSplitter.Repositories
             }
         }
 
+        public GameImageMatchAction Find(Func<GameImageMatchAction, bool> find)
+        {
+            lock (repoLock)
+            {
+                return this.loadedActions.FirstOrDefault(find);
+            }
+        }
+
         public bool TryGet(GameImageMatchActionType type, out IReadOnlyList<GameImageMatchAction> actions)
         {
             lock (repoLock)

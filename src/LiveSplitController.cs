@@ -97,5 +97,10 @@ namespace LiveSplit.PixelSplitter
         {
             this.timer.Pause();
         }
+
+        public void UndoSplit()
+        {
+            this.timer.UndoSplit();
+        }
     }
 }
